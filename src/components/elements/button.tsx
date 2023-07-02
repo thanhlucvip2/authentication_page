@@ -1,4 +1,5 @@
-import { MouseEventHandler, ReactNode } from "react";
+import { MouseEventHandler, ReactElement, ReactNode } from "react";
+import clsx from "clsx";
 
 const btnThemeType = {
   default:
@@ -21,7 +22,8 @@ type ThemeTypeButton = keyof typeof btnThemeType;
 export type ButtonProps<T> = {
   children: ReactNode;
   themeType?: ThemeTypeButton;
-  onClick: MouseEventHandler<T> | undefined;
+  onClick?: MouseEventHandler<T> | undefined;
+  icon?: ReactElement;
   type?: "submit" | "reset" | "button" | undefined;
 };
 
@@ -30,13 +32,18 @@ export const Button = ({
   themeType,
   onClick,
   type,
+  icon,
 }: ButtonProps<Element>) => {
   return (
     <button
       type={type}
-      className={themeType && btnThemeType[themeType]}
+      className={clsx(
+        "flex items-center justify-center",
+        themeType ? btnThemeType[themeType] : btnThemeType.default
+      )}
       onClick={onClick}
     >
+      {icon}
       {children}
     </button>
   );
