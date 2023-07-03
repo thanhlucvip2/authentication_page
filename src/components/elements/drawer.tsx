@@ -16,13 +16,14 @@ export const Drawer = ({
   iconTitle,
 }: DrawerProps) => {
   return (
-    <div
-      onClick={onClose}
-      className={clsx(
-        isOpen &&
-          "fixed top-0 h-screen w-screen bg-[#00000063] dark:bg-[#0000008e] overflow-hidden"
-      )}
-    >
+    <>
+      <div
+        onClick={onClose}
+        className={clsx(
+          isOpen &&
+            "fixed top-0 h-screen w-screen bg-[#00000063] dark:bg-[#0000008e] overflow-hidden"
+        )}
+      ></div>
       <div
         id="drawer-example"
         className={clsx(
@@ -67,6 +68,6 @@ export const Drawer = ({
           {children}
         </div>
       </div>
-    </div>
+    </>
   );
 };
