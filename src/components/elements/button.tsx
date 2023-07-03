@@ -25,6 +25,7 @@ export type ButtonProps<T> = {
   onClick?: MouseEventHandler<T> | undefined;
   icon?: ReactElement;
   type?: "submit" | "reset" | "button" | undefined;
+  className?: string;
 };
 
 export const Button = ({
@@ -33,11 +34,13 @@ export const Button = ({
   onClick,
   type,
   icon,
+  className,
 }: ButtonProps<Element>) => {
   return (
     <button
       type={type}
       className={clsx(
+        className && className,
         "flex items-center justify-center",
         themeType ? btnThemeType[themeType] : btnThemeType.default
       )}

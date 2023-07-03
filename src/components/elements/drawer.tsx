@@ -7,6 +7,7 @@ export type DrawerProps = {
   children?: ReactNode;
   title?: ReactNode;
   iconTitle?: ReactElement;
+  className?: string;
 };
 export const Drawer = ({
   isOpen = true,
@@ -14,9 +15,10 @@ export const Drawer = ({
   children,
   title,
   iconTitle,
+  className,
 }: DrawerProps) => {
   return (
-    <>
+    <div className={className}>
       <div
         onClick={onClose}
         className={clsx(
@@ -68,6 +70,6 @@ export const Drawer = ({
           {children}
         </div>
       </div>
-    </>
+    </div>
   );
 };
