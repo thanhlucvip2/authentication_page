@@ -1,6 +1,6 @@
 "use client";
 
-import { ButtonGroup, Button, Drawer } from "@/Components/elements";
+import { ButtonGroup, Button, Drawer, Dropdown } from "@/Components/elements";
 import { useState } from "react";
 
 export default function Home() {
@@ -8,14 +8,7 @@ export default function Home() {
   return (
     <main>
       <div className="bg-white dark:bg-black w-full h-screen">
-        <Drawer
-          className="dark"
-          title="Title"
-          isOpen={isOpen}
-          onClose={() => setIsOpen(false)}
-        >
-          dasds
-        </Drawer>
+        <Dropdown />
         <Button onClick={() => setIsOpen(true)}>dasd</Button>
       </div>
     </main>
