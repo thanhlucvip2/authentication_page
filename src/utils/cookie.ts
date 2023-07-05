@@ -1,6 +1,6 @@
 const storagePrefix = "hachee_studio__";
 
-const getCookie = (name: string): string | null => {
+export const getCookie = (name: string): string | null => {
   const cname = name + "=";
   const decodedCookie = decodeURIComponent(document.cookie);
   const ca = decodedCookie.split(";");
@@ -16,11 +16,11 @@ const getCookie = (name: string): string | null => {
   return null;
 };
 
-const setCookie = (name: string, value: string): void => {
-  document.cookie = name + "=" + value + ";" + ";path=/";
+export const setCookies = <T>(name: string, value: T): void => {
+  document.cookie = name + "=" + JSON.stringify(value) + ";" + ";path=/";
 };
 
-const removeCookie = (name: string): void => {
+export const removeCookies = (name: string): void => {
   document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 };
 
@@ -29,10 +29,10 @@ const cookie = {
     return JSON.parse(getCookie(`${storagePrefix}token`) as string);
   },
   setToken: (token: string) => {
-    setCookie(`${storagePrefix}token`, JSON.stringify(token));
+    setCookies<string>(`${storagePrefix}token`, token);
   },
   clearToken: () => {
-    removeCookie(`${storagePrefix}token`);
+    removeCookies(`${storagePrefix}token`);
   },
 };
 

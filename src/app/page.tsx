@@ -1,16 +1,16 @@
 "use client";
 
-import { ButtonGroup, Button, Drawer, Dropdown } from "@/Components/elements";
+import { Button } from "@/Components/Elements";
+import Header from "@/Components/Header/Header";
 import { useState } from "react";
 
 export default function Home() {
-  const [isOpen, setIsOpen] = useState(false);
   return (
-    <main>
-      <div className="bg-white dark:bg-black w-full h-screen">
-        <Dropdown />
-        <Button onClick={() => setIsOpen(true)}>dasd</Button>
-      </div>
-    </main>
+    <>
+      {/* ===== Header Section ===== */}
+      <Header />
+      <div className="h-screen"></div>
+      <div className="h-screen"></div>
+    </>
   );
 }
